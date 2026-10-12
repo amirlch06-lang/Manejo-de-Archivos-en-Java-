@@ -182,6 +182,25 @@ public class Gestor {
         guardar();
         System.out.println("El personaje subio de nivel.");
     }
+    public void eliminar(String nombre) {
+        Perdonaje personaje = buscar(nombre);
+        if (personaje == null) {
+            System.out.println("Personaje no encontrado");
+            return;
+        }
+        for (int i = 0; i < cantidad; i++){
+            if (personajes [i] == personaje) {
+                for (int j = i; j < cantidad - 1; j++){
+                    personajes[j] = personajes[j + 1];
+                }
+                personajes[cantidad - 1] = null;
+                cantidad--;
+                guardar();
+                System.out.println("Perdonaje eliminado.")
+                    return;
+            }
+        }
+    }
     public void guardar() {
         try {
             PrintWriter salida = new PrintWriter(archivo);
